@@ -56,6 +56,7 @@ Global Styles
   padding: 0;
   box-sizing: border-box;
 }
+
 body {
   font-family: var(--ff-primary);
   background: var(--gray-light1);
@@ -64,9 +65,11 @@ body {
   font-size: 0.875rem;
   transition: 0.5s;
 }
+
 ul {
   list-style-type: none;
 }
+
 a {
   text-decoration: none;
 }
@@ -78,15 +81,18 @@ h3 {
   line-height: 1;
   margin-bottom: 0.75rem;
 }
+
 h1 {
   font-size: 3.5rem;
   font-family: var(--ff-title);
   color: var(--gold);
 }
+
 h2 {
   font-size: 3rem;
   color: var(--gold);
 }
+
 h3 {
   font-size: 1.5rem;
   font-family: var(--ff-subtitle);
@@ -134,15 +140,24 @@ main {
 .top-buttons {
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .menu-btn {
-  font-size: 1.8rem;
   cursor: pointer;
 }
 
-.menu-btn:hover {
-  color: var(--gray-light2);
+.menu-btn span {
+  display: block;
+  position: relative;
+  width: 25px;
+  height: 3px;
+  margin: 4px 0;
+  background: var(--gray-dark);
+}
+
+.menu-btn:hover span {
+  background: var(--gray-light2);
 }
 
 .sidenav {
@@ -155,7 +170,7 @@ main {
   background-color: var(--white);
   overflow-x: hidden;
   padding-top: 60px;
-  transition: 0.5s;
+  transition: var(--transition);
 }
 
 .links-menu a {
@@ -188,7 +203,7 @@ main {
   width: 60px;
   height: 75px;
   background: var(--sidenavimg);
-  transition: 0.5s;
+  transition: var(--transition);
   display: block;
   margin: 0.5rem auto;
 }
@@ -205,16 +220,16 @@ main {
 /* Search Navigation */
 
 .searchnav {
-  height: 100%; /* 100% Full-height */
-  width: 0; /* 0 width - change this with JavaScript */
-  position: fixed; /* Stay in place */
-  z-index: 3; /* Stay on top */
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 3;
   top: 0;
   right: 0;
-  background-color: var(--white); /* white*/
-  overflow-x: hidden; /* Disable horizontal scroll */
-  padding-top: 60px; /* Place content 60px from the top */
-  transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+  background-color: var(--white);
+  overflow-x: hidden;
+  padding-top: 60px;
+  transition: var(--transition);
 }
 
 .links-menu a {
@@ -280,7 +295,7 @@ main {
   width: 170px;
   height: auto;
   background: var(--logo);
-  transition: 0.5s;
+  transition: var(--transition);
 }
 
 .fa-rectangle-list {
