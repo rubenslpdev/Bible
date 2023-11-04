@@ -268,11 +268,14 @@ main {
   transition: var(--transition);
   visibility: hidden;
   z-index: 1;
+  opacity: 0;
 }
 
 .open-overlay {
   visibility: visible;
   z-index: 2;
+  opacity: 1;
+  transition: var(--transition);
 }
 
 .logo {
