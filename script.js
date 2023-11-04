@@ -49,7 +49,7 @@ closeSearchBtn.addEventListener("click", function () {
   mySearchnav.style.width = "0";
   setTimeout(function () {
     document.body.style.overflowY = "auto";
-  }, 500);
+  }, 450);
   sidenavOverlay.classList.remove("open-overlay");
 });
 
@@ -57,7 +57,7 @@ sidenavOverlay.addEventListener("click", function () {
   mySearchnav.style.width = "0";
   setTimeout(function () {
     document.body.style.overflowY = "auto";
-  }, 500);
+  }, 450);
   sidenavOverlay.classList.remove("open-overlay");
 });
 
