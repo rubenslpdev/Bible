@@ -41,20 +41,23 @@ searchBtn.addEventListener("click", function () {
     mySearchnav.style.width = "450px";
   }
 
-  // document.body.style.overflowY = "hidden";
+  document.body.style.overflowY = "hidden";
   sidenavOverlay.classList.add("open-overlay");
 });
 
 closeSearchBtn.addEventListener("click", function () {
   mySearchnav.style.width = "0";
-  // setTimeout(function () {
-  //   document.body.style.overflowY = "auto";
-  // }, 500);
+  setTimeout(function () {
+    document.body.style.overflowY = "auto";
+  }, 500);
   sidenavOverlay.classList.remove("open-overlay");
 });
 
 sidenavOverlay.addEventListener("click", function () {
   mySearchnav.style.width = "0";
+  setTimeout(function () {
+    document.body.style.overflowY = "auto";
+  }, 500);
   sidenavOverlay.classList.remove("open-overlay");
 });
 
