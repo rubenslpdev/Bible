@@ -306,6 +306,22 @@ main {
 .fa-rectangle-list:hover {
   color: var(--gray-light2);
 }
+/* Dark mode */
+.darkmode {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  height: auto;
+  margin: 1rem auto;
+}
+
+.darkmode img {
+  width: 18px;
+  height: auto;
+  margin: 0 16px;
+}
 
 /* Switch DARK MODE */
 #check {
@@ -323,7 +339,6 @@ main {
   padding: 3px;
   transition: var(--transition);
   cursor: pointer;
-  margin: 1rem auto;
 }
 
 .slider {
