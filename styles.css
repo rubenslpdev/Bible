@@ -67,7 +67,6 @@ body {
   font-family: var(--ff-primary);
   background: var(--gray-light1);
   color: var(--gray-dark);
-  line-height: 1.5;
   font-size: 0.875rem;
 }
 
@@ -101,11 +100,6 @@ h2 {
 h3 {
   font-size: 1.5rem;
   font-family: var(--ff-subtitle);
-  text-transform: capitalize;
-}
-
-p {
-  margin-bottom: 1.25rem;
   text-transform: capitalize;
 }
 
@@ -181,10 +175,12 @@ main {
 .links-menu a {
   padding: 8px 8px 8px 32px;
   text-decoration: none;
-  font-size: 2rem;
+  font-size: 1.5rem;
+  font-family: var(--ff-title);
   color: var(--gray-dark);
   display: block;
   transition: 0.3s;
+  text-transform: capitalize;
 }
 
 .links-menu a:hover {
@@ -204,13 +200,26 @@ main {
   color: var(--gray-light2);
 }
 
+.sidenav p {
+  width: 250px;
+  height: auto;
+  font-size: 0.8em;
+  padding: 0 2rem 1.5rem;
+  text-align: justify;
+}
+
+.sidenav p:first-of-type {
+  text-align: center;
+  padding: 1rem 2rem;
+}
+
 .sidenav-img {
   width: 60px;
   height: 75px;
   background: var(--sidenavimg);
   transition: var(--transition);
   display: block;
-  margin: 0.5rem auto;
+  margin: 1rem auto;
 }
 
 @media screen and (max-height: 450px) {
@@ -342,7 +351,7 @@ main {
   position: relative;
   width: 100%;
   height: auto;
-  margin: 1rem auto;
+  margin: 2rem auto;
 }
 
 .darkmode img {
