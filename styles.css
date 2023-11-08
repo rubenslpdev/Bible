@@ -109,27 +109,30 @@ Global Classes
 ===============
 */
 main {
-  min-height: 100vh;
   display: grid;
   place-items: center;
 }
 
-.container {
-  width: 90%;
-  max-width: var(--max-width);
-  margin: 40px 20px;
-}
-
 /*===== Início do menu =====*/
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 60px;
+  background-color: var(--gray-light1);
+  transition: top 0.3s;
+}
 
 #top {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background-color: var(--gray-light1);
   max-width: var(--max-width);
-  width: 90vw;
+  width: 90%;
   margin: 15px auto;
-  height: auto;
 }
 
 #top a {
