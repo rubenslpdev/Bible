@@ -2,7 +2,7 @@
 // MENU
 // ======
 
-// SIDE NAVIGATION
+// Left SIDE NAVIGATION MENU
 
 const mySidevav = document.getElementById("mySidenav");
 const sidenavOverlay = document.querySelector(".overlay");
@@ -31,7 +31,7 @@ mySidevav.addEventListener("click", (e) => {
   e.stopPropagation();
 });
 
-// SEARCH NAVIGATION
+// RIGHT SIDE NAVIGATION
 
 const mySearchnav = document.getElementById("mySearchnav");
 const searchBtn = document.querySelector(".fa-rectangle-list");
@@ -86,11 +86,11 @@ btnDarkMode.addEventListener("click", () => {
   } else window.localStorage.setItem("theme", "dark");
 });
 
-// Menu scroll
-var lastScrollTop;
+// Top hidden on scroll
+let lastScrollTop;
 navbar = document.getElementById("header");
 window.addEventListener("scroll", function () {
-  var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
   if (scrollTop > lastScrollTop) {
     navbar.style.top = "-70px";
   } else {
@@ -98,3 +98,19 @@ window.addEventListener("scroll", function () {
   }
   lastScrollTop = scrollTop;
 });
+
+// Right SIDE MENU
+const dropdown = document.getElementsByClassName("dropdown-btn");
+let i;
+
+for (i = 0; i < dropdown.length; i++) {
+  dropdown[i].addEventListener("click", function () {
+    this.classList.toggle("active");
+    let dropdownContent = this.nextElementSibling;
+    if (dropdownContent.style.display === "block") {
+      dropdownContent.style.display = "none";
+    } else {
+      dropdownContent.style.display = "block";
+    }
+  });
+}
