@@ -20,9 +20,13 @@ Variables
   --white: #fff;
   --black: #191919;
   --gradient: linear-gradient(to right, #d9d9d9, #3b4248);
+
+  --fs-xl: clamp(1rem, 2vw + 1rem, 3rem);
+
   --ff-primary: "Roboto", sans-serif;
   --ff-title: "Cinzel", serif;
   --ff-subtitle: "Playfair Display", serif;
+
   --transition: all 0.3s linear;
   --spacing: 0.25rem;
   --radius-light: 0.5rem;
@@ -31,6 +35,7 @@ Variables
   --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
   --max-width: 1170px;
   --fixed-width: 620px;
+
   --logo: url(./imgs/logo-dark.svg) no-repeat;
   --sidenavimg: url(./imgs/sidenav-light.svg) no-repeat;
 }
@@ -101,20 +106,6 @@ h3 {
   font-size: 1.5rem;
   font-family: var(--ff-subtitle);
   text-transform: capitalize;
-}
-
-/*
-=============== 
-Global Classes
-===============
-*/
-main {
-  display: grid;
-  place-items: center;
-  max-width: var(--max-width);
-  width: 90%;
-  margin: 0 auto;
-  margin-top: 60px;
 }
 
 /*===== Início do menu =====*/
@@ -409,23 +400,58 @@ MAIN
 ===============
 */
 
-.home-container {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+#main-home {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
+  height: 100vh;
+  max-width: var(--max-width);
+  width: 90%;
+  margin: 0px auto;
+}
+
+.home-container p:first-of-type {
+  font-size: 1rem;
+  font-family: var(--ff-subtitle);
+  color: var(--gray-light2);
+  margin-bottom: 0.8em;
 }
 
 .social {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: auto;
-  gap: 10px;
+  gap: 5px;
+  background-color: var(--gray-light2);
+  border-radius: 45px;
+  padding: 3px 0;
+  margin: 0 auto;
+  width: 140px;
 }
 
-button {
+.social a {
+  height: 24px;
+}
+
+.ver-rand {
+  font-family: var(--ff-title);
+  font-size: var(--fs-xl);
+  margin: 2rem auto;
+}
+
+.ver-rand-cap {
+  font-family: var(--ff-subtitle);
+  font-size: var(--fs-xl);
+  color: var(--gold);
+}
+
+.ver-rand-cap:hover {
+  color: var(--gray-light2);
+}
+
+.random-btn {
   transition: all 0.2s ease, visibility 0s;
   border-radius: 45px;
   border: 2px solid var(--gold);
@@ -436,10 +462,10 @@ button {
   text-decoration: none;
   letter-spacing: 0.1em;
   padding: 10px 16px;
-  margin: 10px 0;
+  margin: 1.5rem 0;
   cursor: pointer;
 }
-button:hover {
+.random-btn:hover {
   color: var(--gold);
   background: var(--gray-light1);
 }
