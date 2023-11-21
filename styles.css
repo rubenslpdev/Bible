@@ -18,6 +18,7 @@ Variables
   --gray-dark: #282828;
   --gold: #9c824b;
   --white: #fff;
+  --white2: #e5e5e4;
   --black: #191919;
   --gradient: linear-gradient(to right, #d9d9d9, #3b4248);
 
@@ -42,8 +43,10 @@ Variables
 
 .dark {
   --gray-light1: #282828;
+  --gray-light2: #494949;
   --gray-dark: #d9d9d9;
   --white: #191919;
+  --white2: #212121;
   --logo: url(./imgs/logo-light.svg) no-repeat;
   --sidenavimg: url(./imgs/sidenav-dark.svg) no-repeat;
 }
@@ -234,20 +237,28 @@ header {
 .searchnav {
   height: 100%;
   width: 0;
-  position: fixed;
+  position: absolute;
   z-index: 3;
   top: 0;
   right: 0;
+  padding: 0 2rem;
   background-color: var(--white);
   overflow-x: hidden;
-  padding-top: 60px;
   transition: var(--transition);
 }
 
-.search-closebtn {
-  position: absolute;
+.searchnav-header {
+  position: sticky;
+  background-color: var(--white);
+  width: 100%;
+  height: auto;
   top: 0;
-  right: 25px;
+  right: 0;
+  z-index: 1;
+}
+
+.search-closebtn {
+  float: right;
   font-size: 3rem;
   margin-left: 50px;
   color: var(--gold);
@@ -257,9 +268,9 @@ header {
   color: var(--gray-light2);
 }
 
-.searchnav-container {
-  padding: 2rem;
-}
+/* .searchnav-container {
+  margin-top: 160px;
+} */
 
 /* Search bar */
 
@@ -268,14 +279,15 @@ header {
   display: flex;
   flex-direction: row;
   align-items: center;
+  padding: 1rem 0;
 }
 
 #searchQueryInput {
   width: 100%;
   height: 2.8rem;
-  background: #d9d9d9;
   outline: none;
-  border: none;
+  background: none;
+  border: 3px solid var(--gray-light1);
   border-radius: 1.625rem;
   padding: 0 3.5rem 0 1.5rem;
   font-size: 1rem;
@@ -295,48 +307,68 @@ header {
 }
 
 /* Searchnav Menu */
+
 /* Style the sidenav links and the dropdown button */
-.searchnav-menu a,
+.searchnav-menu a {
+  transition: all 0.2s ease, visibility 0s;
+  border-radius: 45px;
+  border: 2px solid var(--gold);
+  background: none;
+  color: var(--gold);
+  font-size: 1em;
+  text-decoration: none;
+  letter-spacing: 0.1em;
+  padding: 6px 10px;
+  cursor: pointer;
+}
+
+.searchnav-menu a:hover {
+  color: var(--white);
+  background: var(--gold);
+}
+
 .dropdown-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   padding: 6px 8px 6px 16px;
   text-decoration: none;
-  font-size: 20px;
-  color: #818181;
-  display: block;
+  font-size: 1.2rem;
+  color: var(--gray-dark);
+  background-color: var(--gray-light1);
+  font-family: var(--ff-subtitle);
   border: none;
-  background: none;
+  border-radius: 45px;
   width: 100%;
+  height: auto;
   text-align: left;
   cursor: pointer;
   outline: none;
+  margin: 1rem 0;
 }
 
-/* On mouse-over */
-.searchnav-menu a:hover,
 .dropdown-btn:hover {
-  color: #f1f1f1;
+  background-color: var(--gray-light2);
 }
 
 /* Add an active class to the active dropdown button */
 .active {
-  background-color: green;
-  color: white;
+  background-color: var(--gold);
 }
 
 /* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
 .dropdown-container {
   display: none;
-  background-color: #262626;
-  padding-left: 8px;
+  padding: 0 8px;
 }
 
 /* Optional: Style the caret down icon */
 .fa-caret-down {
-  float: right;
   padding-right: 8px;
 }
 
 /* Fim Searchnav Menu */
+
 @media screen and (max-height: 450px) {
   .searchnav {
     padding-top: 15px;
@@ -456,7 +488,7 @@ MAIN
 }
 
 .home-container p:first-of-type {
-  font-size: 1rem;
+  font-size: 1em;
   font-family: var(--ff-subtitle);
   color: var(--gray-light2);
   margin-bottom: 0.8em;
@@ -467,7 +499,7 @@ MAIN
   align-items: center;
   justify-content: center;
   gap: 5px;
-  background-color: var(--gray-light2);
+  background-color: var(--white2);
   border-radius: 45px;
   padding: 3px 0;
   margin: 0 auto;
