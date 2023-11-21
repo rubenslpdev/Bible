@@ -241,7 +241,6 @@ header {
   z-index: 3;
   top: 0;
   right: 0;
-  padding: 0 2rem;
   background-color: var(--white);
   overflow-x: hidden;
   transition: var(--transition);
@@ -255,22 +254,18 @@ header {
   top: 0;
   right: 0;
   z-index: 1;
+  padding: 0 2rem;
 }
 
 .search-closebtn {
   float: right;
   font-size: 3rem;
-  margin-left: 50px;
   color: var(--gold);
 }
 
 .search-closebtn:hover {
   color: var(--gray-light2);
 }
-
-/* .searchnav-container {
-  margin-top: 160px;
-} */
 
 /* Search bar */
 
@@ -308,6 +303,10 @@ header {
 
 /* Searchnav Menu */
 
+.searchnav-container {
+  padding: 0 2rem;
+}
+
 /* Style the sidenav links and the dropdown button */
 .searchnav-menu a {
   transition: all 0.2s ease, visibility 0s;
@@ -340,10 +339,7 @@ header {
   border: none;
   border-radius: 45px;
   width: 100%;
-  height: auto;
-  text-align: left;
   cursor: pointer;
-  outline: none;
   margin: 1rem 0;
 }
 
