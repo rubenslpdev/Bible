@@ -107,10 +107,16 @@ for (i = 0; i < dropdown.length; i++) {
   dropdown[i].addEventListener("click", function () {
     this.classList.toggle("active");
     let dropdownContent = this.nextElementSibling;
+    let icon = this.querySelector("i");
+
     if (dropdownContent.style.display === "block") {
       dropdownContent.style.display = "none";
+      icon.classList.remove("fa-angle-up");
+      icon.classList.add("fa-angle-down");
     } else {
       dropdownContent.style.display = "block";
+      icon.classList.remove("fa-angle-down");
+      icon.classList.add("fa-angle-up");
     }
   });
 }

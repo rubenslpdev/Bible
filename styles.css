@@ -309,58 +309,64 @@ header {
 
 /* Style the sidenav links and the dropdown button */
 .searchnav-menu a {
-  transition: all 0.2s ease, visibility 0s;
+  background: var(--gray-light1);
+  border: 2px solid var(--gray-light1);
   border-radius: 45px;
-  border: 2px solid var(--gold);
-  background: none;
-  color: var(--gold);
+  color: var(--gray-dark);
   font-size: 1em;
+
   text-decoration: none;
   letter-spacing: 0.1em;
   padding: 6px 10px;
   cursor: pointer;
+  transition: all 0.2s ease, visibility 0s;
 }
 
 .searchnav-menu a:hover {
-  color: var(--white);
-  background: var(--gold);
+  background: none;
 }
 
 .dropdown-btn {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 6px 8px 6px 16px;
+  padding: 6px 0 3px 2px;
   text-decoration: none;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   color: var(--gray-dark);
-  background-color: var(--gray-light1);
   font-family: var(--ff-subtitle);
-  border: none;
-  border-radius: 45px;
   width: 100%;
   cursor: pointer;
   margin: 1rem 0;
+  border: none;
+  border-bottom: 1px solid var(--gray-dark);
+  background: none;
 }
 
 .dropdown-btn:hover {
-  background-color: var(--gray-light2);
+  color: var(--gray-light2);
 }
 
 /* Add an active class to the active dropdown button */
 .active {
-  background-color: var(--gold);
+  color: var(--gold);
+  border-bottom: 1px solid var(--gold);
 }
 
 /* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
 .dropdown-container {
   display: none;
-  padding: 0 8px;
+  padding-left: 8px;
 }
 
 /* Optional: Style the caret down icon */
-.fa-caret-down {
+.fa-angle-down,
+.fa-angle-up {
   padding-right: 8px;
+}
+
+.dot {
+  font-size: 0.5rem;
 }
 
 /* Fim Searchnav Menu */
