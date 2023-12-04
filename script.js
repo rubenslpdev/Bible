@@ -120,3 +120,13 @@ for (i = 0; i < dropdown.length; i++) {
     }
   });
 }
+
+// Random verse HOME
+
+const url = "https://www.abibliadigital.com.br/api/verses/nvi/random";
+const randomVerse = document.querySelector(".ver-rand");
+const randomBut = document.querySelector(".random-btn");
+
+randomBut.addEventListener("click", () => {
+  console.log("hello");
+});
