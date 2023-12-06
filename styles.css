@@ -537,8 +537,14 @@ MAIN
   padding: 10px 16px;
   margin: 1.5rem 0;
   cursor: pointer;
+  box-shadow: var(--dark-shadow);
 }
 #random-btn:hover {
   color: var(--gold);
   background: var(--gray-light1);
+}
+
+#random-btn:active {
+  top: 2px;
+  box-shadow: none;
 }
