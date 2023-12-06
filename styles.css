@@ -512,23 +512,19 @@ MAIN
   height: 24px;
 }
 
-.ver-rand {
+#ver-rand {
   font-family: var(--ff-title);
   font-size: var(--fs-xl);
   margin: 2rem auto;
 }
 
-.ver-rand-cap {
+#ver-rand-cap {
   font-family: var(--ff-subtitle);
   font-size: var(--fs-xl);
   color: var(--gold);
 }
 
-.ver-rand-cap:hover {
-  color: var(--gray-light2);
-}
-
-.random-btn {
+#random-btn {
   transition: all 0.2s ease, visibility 0s;
   border-radius: 45px;
   border: 2px solid var(--gold);
@@ -542,7 +538,7 @@ MAIN
   margin: 1.5rem 0;
   cursor: pointer;
 }
-.random-btn:hover {
+#random-btn:hover {
   color: var(--gold);
   background: var(--gray-light1);
 }

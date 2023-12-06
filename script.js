@@ -123,10 +123,53 @@ for (i = 0; i < dropdown.length; i++) {
 
 // Random verse HOME
 
-const url = "https://www.abibliadigital.com.br/api/verses/nvi/random";
-const randomVerse = document.querySelector(".ver-rand");
-const randomBut = document.querySelector(".random-btn");
+const authToken =
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlR1ZSBEZWMgMDUgMjAyMyAxODo0MjoxMSBHTVQrMDAwMC5ydWJlbnNscEBnbWFpbC5jb20iLCJpYXQiOjE3MDE4MDE3MzF9.VZWPmcP0mX7Du7Gc3guXd_68HIvBE4c94BwvlkHAs60";
 
-randomBut.addEventListener("click", () => {
-  console.log("hello");
+// Lista de endpoints dos versos selecionados
+const listaDeVersos = [
+  "https://www.abibliadigital.com.br/api/verses/nvi/gn/1/1",
+  "https://www.abibliadigital.com.br/api/verses/nvi/gn/1/2",
+  "https://www.abibliadigital.com.br/api/verses/nvi/gn/1/3",
+  "https://www.abibliadigital.com.br/api/verses/nvi/gn/1/4",
+  "https://www.abibliadigital.com.br/api/verses/nvi/gn/1/5",
+  // Adicione mais endpoints conforme necessário
+];
+
+// Função para selecionar um endpoint aleatório da lista
+function selecionarVersoAleatorio() {
+  const indiceAleatorio = Math.floor(Math.random() * listaDeVersos.length);
+  return listaDeVersos[indiceAleatorio];
+}
+
+// Função assíncrona para buscar um verso bíblico do endpoint selecionado
+async function fetchSelectedBibleVerse() {
+  const versoSelecionado = selecionarVersoAleatorio();
+  try {
+    const response = await fetch(versoSelecionado, {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${authToken}`,
+      },
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const verseData = await response.json();
+    // Atualiza o conteúdo das divs com as informações do verso
+    document.getElementById("ver-rand-cap").textContent = `${verseData.book.name} ${verseData.chapter}:${verseData.number}`;
+    document.getElementById("ver-rand").textContent = verseData.text;
+  } catch (error) {
+    console.error("Erro ao buscar verso bíblico:", error);
+    document.getElementById("ver-rand-cap").textContent = "Erro";
+    document.getElementById("ver-rand").textContent = "Erro ao carregar verso.";
+  }
+}
+
+// Adiciona evento de clique ao botão e chama a função ao carregar a página
+document.addEventListener("DOMContentLoaded", (event) => {
+  document.getElementById("random-btn").addEventListener("click", fetchSelectedBibleVerse);
+  fetchSelectedBibleVerse();
 });
