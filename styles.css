@@ -508,8 +508,20 @@ MAIN
   width: 140px;
 }
 
-.social a {
-  height: 24px;
+.fa-facebook,
+.fa-x-twitter,
+.fa-whatsapp,
+.fa-envelope {
+  font-size: 1.1rem;
+  padding: 4px;
+  color: var(--gray-light2);
+}
+
+.fa-facebook:hover,
+.fa-x-twitter:hover,
+.fa-whatsapp:hover,
+.fa-envelope:hover {
+  color: initial;
 }
 
 #ver-rand {
@@ -538,7 +550,9 @@ MAIN
   margin: 1.5rem 0;
   cursor: pointer;
   box-shadow: var(--dark-shadow);
+  position: relative;
 }
+
 #random-btn:hover {
   color: var(--gold);
   background: var(--gray-light1);
