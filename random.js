@@ -144,3 +144,49 @@ document.addEventListener("DOMContentLoaded", (event) => {
   document.getElementById("random-btn").addEventListener("click", fetchSelectedBibleVerse);
   fetchSelectedBibleVerse();
 });
+
+//
+// FUNÇÃO PARA COMPARTILHAMENTO
+//
+
+// Função para criar uma URL de compartilhamento
+function criarUrlDeCompartilhamento(verso, referencia, plataforma) {
+  const textoBase = encodeURIComponent(`${verso} ${referencia} - Leia mais em http://www.leiabiblia.com.br`);
+  let urlDeCompartilhamento = "";
+
+  switch (plataforma) {
+    case "facebook":
+      urlDeCompartilhamento = `https://www.facebook.com/sharer/sharer.php?u=${textoBase}`;
+      break;
+    case "twitter":
+      urlDeCompartilhamento = `https://twitter.com/intent/tweet?text=${textoBase}`;
+      break;
+    case "whatsapp":
+      urlDeCompartilhamento = `https://api.whatsapp.com/send?text=${textoBase}`;
+      break;
+    case "email":
+      urlDeCompartilhamento = `mailto:?subject=Versículo do Dia&body=${textoBase}`;
+      break;
+    default:
+      break;
+  }
+
+  return urlDeCompartilhamento;
+}
+
+// Adiciona funcionalidade de compartilhamento aos botões
+document.addEventListener("DOMContentLoaded", (event) => {
+  const botoesDeCompartilhamento = document.querySelectorAll(".social a");
+
+  botoesDeCompartilhamento.forEach((botao) => {
+    botao.addEventListener("click", function () {
+      const plataforma = this.className;
+      const verso = document.getElementById("ver-rand").textContent;
+      const referencia = document.getElementById("ver-rand-cap").textContent;
+      const url = criarUrlDeCompartilhamento(verso, referencia, plataforma);
+
+      // Abre a URL de compartilhamento em uma nova aba
+      window.open(url, "_blank");
+    });
+  });
+});

@@ -515,6 +515,7 @@ MAIN
   font-size: 1.1rem;
   padding: 4px;
   color: var(--gray-light2);
+  cursor: pointer;
 }
 
 .fa-facebook:hover,
