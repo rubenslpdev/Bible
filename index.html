@@ -14,6 +14,8 @@
     <link rel="stylesheet" href="./styles.css" />
     <!-- Font awesome icons -->
     <script src="https://kit.fontawesome.com/311c6757ca.js" crossorigin="anonymous"></script>
+    <!-- Botão compartilhar ao selecionar texto -->
+    <script src="https://unpkg.com/sharect@2.0.0/dist/sharect.js"></script>
   </head>
   <body>
     <!-- 
@@ -84,9 +86,9 @@
                   <i class="fa-solid fa-angle-down"></i>
                 </button>
                 <div class="dropdown-container">
-                  <a href="#">1</a>
-                  <a href="#">2</a>
-                  <a href="#">3</a>
+                  <a href="#">01</a>
+                  <a href="#">02</a>
+                  <a href="#">03</a>
                 </div>
               </div>
               <!-- Novo Testamento Menu -->
@@ -100,9 +102,9 @@
                   <i class="fa-solid fa-angle-down"></i>
                 </button>
                 <div class="dropdown-container">
-                  <a href="#">1</a>
-                  <a href="#">2</a>
-                  <a href="#">3</a>
+                  <a href="#">01</a>
+                  <a href="#">02</a>
+                  <a href="#">03</a>
                 </div>
               </div>
             </div>
@@ -111,8 +113,9 @@
         </div>
       </div>
 
-      <!-- searchnav end -->
+      <!-- MENU SUPERIOR -->
 
+      <!-- Left sidebar BTN -->
       <div id="top">
         <div class="menu-btn">
           <span></span>
@@ -121,7 +124,7 @@
         </div>
         <!-- Logo -->
         <a href="index.html" class="logo"></a>
-        <!-- Logo end -->
+        <!-- Right sidebar BTN -->
         <i class="fa-regular fa-rectangle-list"></i>
       </div>
     </header>
@@ -132,15 +135,11 @@
     -->
     <main id="main-home">
       <div class="home-container">
-        <p>Compartilhe <i class="fa-solid fa-share"></i></p>
-        <div class="social">
-          <a class="facebook" target="_blank"><i class="fa-brands fa-facebook"></i></a>
-          <a class="twitter" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
-          <a class="whatsapp" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
-          <a class="email" target="_blank"><i class="fa-regular fa-envelope"></i></a>
-        </div>
+        <!-- <div class="social">
+          <p id="share-btn">Compartilhe <i class="fa-solid fa-share-nodes"></i></p>
+        </div> -->
         <p id="ver-rand">Carregando versículo...</p>
-        <div id="ver-rand-cap"></div>
+        <p id="ver-rand-cap"></p>
         <button id="random-btn">Ler outro versículo</button>
       </div>
     </main>

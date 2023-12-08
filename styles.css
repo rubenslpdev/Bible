@@ -489,11 +489,12 @@ MAIN
   margin: 0px auto;
 }
 
-.home-container p:first-of-type {
+.social p {
   font-size: 1em;
   font-family: var(--ff-subtitle);
   color: var(--gray-light2);
-  margin-bottom: 0.8em;
+  margin: 0.5em;
+  cursor: pointer;
 }
 
 .social {
@@ -503,32 +504,14 @@ MAIN
   gap: 5px;
   background-color: var(--white2);
   border-radius: 45px;
-  padding: 3px 0;
   margin: 0 auto;
-  width: 140px;
-}
-
-.fa-facebook,
-.fa-x-twitter,
-.fa-whatsapp,
-.fa-envelope {
-  font-size: 1.1rem;
-  padding: 4px;
-  color: var(--gray-light2);
-  cursor: pointer;
-}
-
-.fa-facebook:hover,
-.fa-x-twitter:hover,
-.fa-whatsapp:hover,
-.fa-envelope:hover {
-  color: initial;
+  width: 130px;
 }
 
 #ver-rand {
   font-family: var(--ff-title);
   font-size: var(--fs-xl);
-  margin: 2rem auto;
+  margin: 0.8rem auto;
 }
 
 #ver-rand-cap {
@@ -562,4 +545,8 @@ MAIN
 #random-btn:active {
   top: 2px;
   box-shadow: none;
+}
+
+p::selection /* Código para mudar o background da seleção */ {
+  background: #fae88e;
 }
