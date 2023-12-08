@@ -144,38 +144,3 @@ document.addEventListener("DOMContentLoaded", (event) => {
   document.getElementById("random-btn").addEventListener("click", fetchSelectedBibleVerse);
   fetchSelectedBibleVerse();
 });
-
-//
-// FUNÇÃO PARA COMPARTILHAMENTO
-//
-
-// Função para compartilhar o verso e a referência usando a API de compartilhamento do navegador
-async function compartilharVerso() {
-  const verso = document.getElementById("ver-rand").textContent;
-  const referencia = document.getElementById("ver-rand-cap").textContent;
-  const textoParaCompartilhar = `${verso} ${referencia} - Leia mais em http://www.site.com`;
-
-  if (navigator.share) {
-    try {
-      await navigator.share({
-        title: "Versículo do Dia",
-        text: textoParaCompartilhar,
-        url: "http://www.leiaabibliasagrada.com.br",
-      });
-      console.log("Compartilhamento bem-sucedido!");
-    } catch (error) {
-      console.error("Erro ao compartilhar:", error);
-    }
-  } else {
-    console.error("A API de compartilhamento não é suportada neste navegador.");
-  }
-}
-
-// Adiciona evento de clique ao botão de compartilhamento
-document.addEventListener("DOMContentLoaded", (event) => {
-  const botaoCompartilhar = document.getElementById("share-btn");
-  botaoCompartilhar.addEventListener("click", compartilharVerso);
-
-  // Chama a função para buscar um verso ao carregar a página
-  fetchSelectedBibleVerse();
-});
