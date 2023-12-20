@@ -148,6 +148,7 @@ async function getBooks() {
 }
 
 let showingChapters = false;
+let currentButton = null;
 
 function showBooks() {
   getBooks().then((books) => {
@@ -170,11 +171,19 @@ function showBooks() {
         const div = book.testament === "VT" ? divChaptersVT : divChaptersNT;
 
         if (showingChapters) {
-          btn.nextElementSibling.remove();
-          showingChapters = false;
+          if (currentButton !== btn) {
+            currentButton.nextElementSibling.remove();
+            showChapters(abbrev, div, btn);
+            currentButton = btn;
+          } else {
+            btn.nextElementSibling.remove();
+            showingChapters = false;
+            currentButton = null;
+          }
         } else {
           showChapters(abbrev, div, btn);
           showingChapters = true;
+          currentButton = btn;
         }
       });
     });
