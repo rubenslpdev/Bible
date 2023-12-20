@@ -4,7 +4,7 @@ Fonts
 ===============
 */
 
-@import url("https://fonts.googleapis.com/css2?family=Cinzel&family=Playfair+Display&family=Roboto:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cinzel&family=Playfair+Display&family=Roboto:wght@300&family=Crimson+Text&display=swap");
 
 /*
 =============== 
@@ -27,6 +27,7 @@ Variables
   --ff-primary: "Roboto", sans-serif;
   --ff-title: "Cinzel", serif;
   --ff-subtitle: "Playfair Display", serif;
+  --ff-body: "Crimson Text", serif;
 
   --transition: all 0.3s linear;
   --spacing: 0.25rem;
@@ -282,7 +283,7 @@ header {
   height: 2.8rem;
   outline: none;
   background: none;
-  border: 3px solid var(--gray-light1);
+  border: 2px solid var(--gold);
   border-radius: 1.625rem;
   padding: 0 3.5rem 0 1.5rem;
   font-size: 1rem;
@@ -307,22 +308,25 @@ header {
   padding: 0 2rem;
 }
 
-/* Style the sidenav links and the dropdown button */
-.searchnav-menu a {
+.chapter-item {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
   background: var(--gray-light1);
   border: 2px solid var(--gray-light1);
-  border-radius: 45px;
+  border-radius: 50%;
   color: var(--gray-dark);
   font-size: 1em;
-
   text-decoration: none;
   letter-spacing: 0.1em;
-  padding: 6px 10px;
+  padding: 10px 0;
   cursor: pointer;
   transition: all 0.2s ease, visibility 0s;
+  margin: 2px;
+  text-align: center;
 }
 
-.searchnav-menu a:hover {
+.chapter-item:hover {
   background: none;
 }
 
@@ -381,6 +385,7 @@ header {
 }
 
 /* Overlay */
+
 .overlay {
   position: fixed;
   top: 0;
@@ -418,7 +423,9 @@ header {
 .fa-rectangle-list:hover {
   color: var(--gray-light2);
 }
+
 /* Dark mode */
+
 .darkmode {
   display: flex;
   align-items: center;
@@ -436,6 +443,7 @@ header {
 }
 
 /* Switch DARK MODE */
+
 #check {
   display: none;
 }
@@ -469,7 +477,6 @@ header {
 #check:checked ~ .switch .slider {
   transform: translateX(24px);
 }
-/*===== Fim do menu =====*/
 
 /*
 =============== 
@@ -534,12 +541,12 @@ MAIN
   margin: 1.5rem 0;
   cursor: pointer;
   box-shadow: var(--dark-shadow);
-  position: relative;
 }
 
 #random-btn:hover {
   color: var(--gold);
   background: var(--gray-light1);
+  position: relative;
 }
 
 #random-btn:active {
@@ -547,6 +554,7 @@ MAIN
   box-shadow: none;
 }
 
-p::selection /* Código para mudar o background da seleção */ {
+/* Código para mudar o background da seleção de texto */
+p::selection {
   background: #fae88e;
 }

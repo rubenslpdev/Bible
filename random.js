@@ -107,13 +107,11 @@ const listaDeVersos = [
   "https://www.abibliadigital.com.br/api/verses/nvi/jo/3/16",
 ];
 
-// Função para selecionar um endpoint aleatório da lista
 function selecionarVersoAleatorio() {
   const indiceAleatorio = Math.floor(Math.random() * listaDeVersos.length);
   return listaDeVersos[indiceAleatorio];
 }
 
-// Função assíncrona para buscar um verso bíblico do endpoint selecionado
 async function fetchSelectedBibleVerse() {
   const versoSelecionado = selecionarVersoAleatorio();
   try {
@@ -129,7 +127,7 @@ async function fetchSelectedBibleVerse() {
     }
 
     const verseData = await response.json();
-    // Atualiza o conteúdo das divs com as informações do verso
+
     document.getElementById("ver-rand-cap").textContent = `${verseData.book.name} ${verseData.chapter}:${verseData.number}`;
     document.getElementById("ver-rand").textContent = verseData.text;
   } catch (error) {
@@ -139,7 +137,6 @@ async function fetchSelectedBibleVerse() {
   }
 }
 
-// Adiciona evento de clique ao botão e chama a função ao carregar a página
 document.addEventListener("DOMContentLoaded", (event) => {
   document.getElementById("random-btn").addEventListener("click", fetchSelectedBibleVerse);
   fetchSelectedBibleVerse();

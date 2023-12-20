@@ -71,45 +71,32 @@
             </div>
           </div>
 
-          <!-- Serachnav Menu -->
+          <!-- Searchnav Menu BEGIN -->
 
           <div class="searchnav-container">
             <div class="searchnav-menu">
               <!-- Antigo testamento menu -->
-              <button class="dropdown-btn">
-                Antigo Testamento
+              <button class="dropdown-btn" value="vt">
+                Velho Testamento
                 <i class="fa-solid fa-angle-down"></i>
               </button>
               <div class="dropdown-container">
-                <button class="dropdown-btn">
-                  Gênesis
-                  <i class="fa-solid fa-angle-down"></i>
-                </button>
-                <div class="dropdown-container">
-                  <a href="#">01</a>
-                  <a href="#">02</a>
-                  <a href="#">03</a>
-                </div>
+                <div id="books-vt"></div>
+                <div id="chapters-vt"></div>
               </div>
               <!-- Novo Testamento Menu -->
-              <button class="dropdown-btn">
+              <button class="dropdown-btn" value="nt">
                 Novo Testamento
                 <i class="fa-solid fa-angle-down"></i>
               </button>
               <div class="dropdown-container">
-                <button class="dropdown-btn">
-                  Mateus
-                  <i class="fa-solid fa-angle-down"></i>
-                </button>
-                <div class="dropdown-container">
-                  <a href="#">01</a>
-                  <a href="#">02</a>
-                  <a href="#">03</a>
-                </div>
+                <div id="books-nt"></div>
+                <div id="chapters-nt"></div>
               </div>
             </div>
-            <!-- Serachnav Menu END -->
           </div>
+
+          <!-- Searchnav Menu END -->
         </div>
       </div>
 
@@ -140,7 +127,7 @@
         </div> -->
         <p id="ver-rand">Carregando versículo...</p>
         <p id="ver-rand-cap"></p>
-        <button id="random-btn">Ler outro versículo</button>
+        <button id="random-btn">Ler outro verso</button>
       </div>
     </main>
 
