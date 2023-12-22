@@ -34,7 +34,7 @@ mySidevav.addEventListener("click", (e) => {
 // RIGHT SIDE NAVIGATION
 
 const mySearchnav = document.getElementById("mySearchnav");
-const searchBtn = document.querySelector(".fa-rectangle-list");
+const searchBtn = document.querySelector(".open-book");
 const closeSearchBtn = document.querySelector(".search-closebtn");
 
 searchBtn.addEventListener("click", () => {

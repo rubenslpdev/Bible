@@ -283,7 +283,7 @@ header {
   height: 2.8rem;
   outline: none;
   background: none;
-  border: 2px solid var(--gold);
+  border: 1px solid var(--gold);
   border-radius: 1.625rem;
   padding: 0 3.5rem 0 1.5rem;
   font-size: 1rem;
@@ -312,22 +312,21 @@ header {
   display: inline-block;
   width: 40px;
   height: 40px;
-  background: var(--gray-light1);
-  border: 2px solid var(--gray-light1);
+  border: 1px solid var(--gray-light1);
   border-radius: 50%;
   color: var(--gray-dark);
   font-size: 1em;
   text-decoration: none;
-  letter-spacing: 0.1em;
   padding: 10px 0;
   cursor: pointer;
   transition: all 0.2s ease, visibility 0s;
   margin: 2px;
   text-align: center;
+  background: none;
 }
 
 .chapter-item:hover {
-  background: none;
+  background: var(--gray-light1);
 }
 
 .dropdown-btn {
@@ -351,19 +350,16 @@ header {
   color: var(--gray-light2);
 }
 
-/* Add an active class to the active dropdown button */
 .active {
   color: var(--gold);
   border-bottom: 1px solid var(--gold);
 }
 
-/* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
 .dropdown-container {
   display: none;
   padding-left: 8px;
 }
 
-/* Optional: Style the caret down icon */
 .fa-angle-down,
 .fa-angle-up {
   padding-right: 8px;
@@ -415,13 +411,14 @@ header {
   transition: var(--transition);
 }
 
-.fa-rectangle-list {
-  font-size: 1.5rem;
+.open-book {
+  width: 25px;
+  height: 25px;
+  fill: var(--gray-dark);
   cursor: pointer;
 }
-
-.fa-rectangle-list:hover {
-  color: var(--gray-light2);
+.open-book:hover {
+  fill: var(--gray-light2);
 }
 
 /* Dark mode */
