@@ -151,9 +151,9 @@ header {
 .menu-btn span {
   display: block;
   position: relative;
-  width: 25px;
-  height: 3px;
-  margin: 4px 0;
+  width: 20px;
+  height: 2px;
+  margin: 6px 0;
   background: var(--gray-dark);
 }
 
@@ -412,8 +412,8 @@ header {
 }
 
 .open-book {
-  width: 27px;
-  height: 27px;
+  width: 28px;
+  height: 28px;
   fill: var(--gray-dark);
   cursor: pointer;
   padding: 4px;
