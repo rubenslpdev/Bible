@@ -183,6 +183,7 @@ header {
   display: block;
   transition: 0.3s;
   text-transform: capitalize;
+  width: 250px;
 }
 
 .links-menu a:hover {
