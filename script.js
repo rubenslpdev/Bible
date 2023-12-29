@@ -191,8 +191,38 @@ function showBooks() {
 }
 
 function showChapters(abbrev, div, btn) {
-  const api_url = `https://www.abibliadigital.com.br/api/books/${abbrev}`;
+  const skeletonHTML = `
+    <div class="loading-container">
+      <div class="loading chapter-item-skeleton"></div>
+      <div class="loading chapter-item-skeleton"></div>
+      <div class="loading chapter-item-skeleton"></div>
+      <div class="loading chapter-item-skeleton"></div>
+      <div class="loading chapter-item-skeleton"></div>
+      <div class="loading chapter-item-skeleton"></div>
+      <div class="loading chapter-item-skeleton"></div>
+      <div class="loading chapter-item-skeleton"></div>
+      <div class="loading chapter-item-skeleton"></div>
+      <div class="loading chapter-item-skeleton"></div>
+      <div class="loading chapter-item-skeleton"></div>
+      <div class="loading chapter-item-skeleton"></div>
+      <div class="loading chapter-item-skeleton"></div>
+      <div class="loading chapter-item-skeleton"></div>
+      <div class="loading chapter-item-skeleton"></div>
+      <div class="loading chapter-item-skeleton"></div>
+      <div class="loading chapter-item-skeleton"></div>
+      <div class="loading chapter-item-skeleton"></div>
+      <div class="loading chapter-item-skeleton"></div>
+      <div class="loading chapter-item-skeleton"></div>
+    </div>
+  `;
 
+  if (btn.nextElementSibling && btn.nextElementSibling.classList.contains("chapter-list")) {
+    btn.nextElementSibling.remove();
+  }
+
+  btn.insertAdjacentHTML("afterend", skeletonHTML);
+
+  const api_url = `https://www.abibliadigital.com.br/api/books/${abbrev}`;
   const options = {
     headers: {
       Authorization: `Bearer ${token}`,
@@ -202,6 +232,11 @@ function showChapters(abbrev, div, btn) {
   fetch(api_url, options)
     .then((response) => response.json())
     .then((data) => {
+      const skeleton = btn.nextElementSibling;
+      if (skeleton && skeleton.classList.contains("loading-container")) {
+        skeleton.remove();
+      }
+
       const chapters = data.chapters;
       const divList = document.createElement("div");
       divList.setAttribute("class", "chapter-list");
@@ -216,6 +251,11 @@ function showChapters(abbrev, div, btn) {
     })
     .catch((error) => {
       console.error(error);
+      const skeleton = btn.nextElementSibling;
+      if (skeleton && skeleton.classList.contains("loading-container")) {
+        skeleton.remove();
+      }
+      div.innerHTML = "<p>Erro ao carregar os capítulos.</p>";
     });
 }
 
@@ -242,4 +282,136 @@ for (i = 0; i < dropdown.length; i++) {
       icon.classList.add("fa-angle-up");
     }
   });
+}
+
+// Search
+
+const searchInput = document.getElementById("searchQueryInput");
+const searchButton = document.getElementById("searchQuerySubmit");
+const searchResults = document.getElementById("searchResults");
+
+function clearSearchResults() {
+  searchResults.innerHTML = "";
+  searchResults.classList.remove("show-results");
+}
+
+function showSkeletonLoading() {
+  let skeletonHTML = "";
+
+  for (let i = 0; i < 10; i++) {
+    skeletonHTML += `
+<div class="loading-container">
+      <div class="table">
+        <div class="loading card-title shorter-s"></div>
+        <div class="loading table-content"></div>
+        <div class="loading table-content"></div>
+        <div class="loading table-content"></div>
+        <div class="loading table-content shorter-l"></div>
+      </div>
+</div><br><br>
+    `;
+  }
+
+  searchResults.innerHTML = skeletonHTML;
+  searchResults.classList.add("show-results");
+}
+
+async function searchVerses(query, token) {
+  try {
+    showSkeletonLoading();
+
+    const endpoint = "https://www.abibliadigital.com.br/api/verses/search";
+    const requestBody = {
+      version: "nvi",
+      search: query,
+    };
+
+    const options = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify(requestBody),
+    };
+
+    const response = await fetch(endpoint, options);
+
+    if (response.ok) {
+      const data = await response.json();
+      const searchTerm = query;
+      const occurrence = data.occurrence;
+      const verses = data.verses;
+      displaySearchResults(verses, searchTerm, occurrence);
+    } else {
+      throw new Error("Erro ao buscar os versículos");
+    }
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+searchButton.addEventListener("click", () => {
+  const searchQuery = searchInput.value.trim();
+  if (searchQuery !== "") {
+    searchVerses(searchQuery, token);
+  } else {
+    clearSearchResults();
+  }
+});
+
+searchInput.addEventListener("keypress", (event) => {
+  if (event.key === "Enter") {
+    event.preventDefault();
+    const searchQuery = searchInput.value.trim();
+    if (searchQuery !== "") {
+      searchVerses(searchQuery, token);
+    } else {
+      clearSearchResults();
+    }
+  }
+});
+
+searchInput.addEventListener("input", () => {
+  const searchQuery = searchInput.value.trim();
+
+  if (searchQuery === "") {
+    clearSearchResults();
+  }
+});
+
+searchInput.addEventListener("keydown", (event) => {
+  const searchQuery = searchInput.value.trim();
+
+  if (event.key === "Backspace" && searchQuery === "") {
+    clearSearchResults();
+  }
+});
+
+// Mostra resultado da busca
+
+function displaySearchResults(verses, searchTerm, occurrence) {
+  const searchResults = document.getElementById("searchResults");
+  const searchMenu = document.getElementById("searchMenu");
+
+  searchResults.classList.add("show-results");
+  searchMenu.classList.remove("show-results");
+
+  searchResults.innerHTML = "";
+
+  const searchInfo = document.createElement("div");
+  searchInfo.innerHTML = `<p>Busca por <span class="highlight">${searchTerm}</span></p><hr>
+    <p>Foram encontrados <span class="highlight">${occurrence}</span> resultados.</p><BR><BR>`;
+
+  searchResults.appendChild(searchInfo);
+
+  if (verses.length === 0) {
+    searchResults.innerHTML += "<p>Nenhum versículo encontrado.</p>";
+  } else {
+    verses.forEach((verse) => {
+      const verseElement = document.createElement("div");
+      verseElement.innerHTML = `<p class="highlight">${verse.book.name} ${verse.chapter}:${verse.number}</p><p>${verse.text}</p><br><hr><br>`;
+      searchResults.appendChild(verseElement);
+    });
+  }
 }
