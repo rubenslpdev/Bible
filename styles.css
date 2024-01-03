@@ -92,19 +92,19 @@ h1,
 h2,
 h3 {
   letter-spacing: var(--spacing);
-  line-height: 1;
   margin-bottom: 0.75rem;
 }
 
 h1 {
   font-size: 3.5rem;
-  font-family: var(--ff-title);
+  font-family: var(--ff-subtitle);
   color: var(--gold);
 }
 
 h2 {
   font-size: 3rem;
   color: var(--gold);
+  font-family: var(--ff-title);
 }
 
 h3 {
@@ -583,7 +583,7 @@ header {
 
 /*
 =============== 
-MAIN
+MAIN HOME
 ===============
 */
 
@@ -599,25 +599,6 @@ MAIN
   margin: 0px auto;
 }
 
-.social p {
-  font-size: 1em;
-  font-family: var(--ff-subtitle);
-  color: var(--gray-light2);
-  margin: 0.5em;
-  cursor: pointer;
-}
-
-.social {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 5px;
-  background-color: var(--white2);
-  border-radius: 45px;
-  margin: 0 auto;
-  width: 130px;
-}
-
 #ver-rand {
   font-family: var(--ff-title);
   font-size: var(--fs-xl);
@@ -630,7 +611,7 @@ MAIN
   color: var(--gold);
 }
 
-#random-btn {
+.general-btn {
   transition: all 0.2s ease, visibility 0s;
   border-radius: 45px;
   border: 2px solid var(--gold);
@@ -646,15 +627,79 @@ MAIN
   box-shadow: var(--dark-shadow);
 }
 
-#random-btn:hover {
+.general-btn:hover {
   color: var(--gold);
   background: var(--gray-light1);
   position: relative;
 }
 
-#random-btn:active {
+.general-btn:active {
   top: 2px;
   box-shadow: none;
+}
+
+/*
+=============== 
+MAIN CONTENT
+===============
+*/
+
+#main-content {
+  max-width: var(--max-width);
+  width: 90%;
+  margin: 7rem auto 0px;
+  align-items: center;
+}
+
+.book-name {
+  text-align: center;
+}
+
+.chapter-number {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.tempo-leitura {
+  width: 200 px;
+  margin-bottom: 2rem;
+  font-weight: 800;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.tempo-leitura p {
+  margin-bottom: 5px;
+}
+
+.underline {
+  width: 5rem;
+  border-bottom: 2px solid var(--gold);
+}
+
+#content-container {
+  font-size: 1.5rem;
+}
+
+.verse-number {
+  color: var(--gold);
+  font-size: 1rem;
+}
+
+.content-nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+@media screen and (max-width: 450px) {
+  #content-container {
+    font-size: 1.2rem;
+  }
+  .book-name {
+    font-size: 2rem;
+  }
 }
 
 /* Código para mudar o background da seleção de texto */

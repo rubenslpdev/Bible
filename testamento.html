@@ -164,15 +164,21 @@
       Início do MAIN
       ===============
     -->
-    <main id="main-home">
-      <div class="home-container">
-        <p id="ver-rand">Carregando versículo...</p>
-        <p id="ver-rand-cap"></p>
-        <button id="random-btn" class="general-btn">Ler outro verso</button>
+    <main id="main-content">
+      <h2 class="book-name"></h2>
+      <h1 class="chapter-number"></h1>
+      <div class="tempo-leitura">
+        <p><span id="time"></span> minutos de leitura</p>
+        <div class="underline"></div>
+      </div>
+      <div id="content-container"></div>
+      <div class="content-nav">
+        <button id="previous-btn" class="general-btn">Anterior</button>
+        <button id="next-btn" class="general-btn">Próximo</button>
       </div>
     </main>
 
     <script src="script.js"></script>
-    <script src="random.js"></script>
+    <script src="content.js"></script>
   </body>
 </html>
