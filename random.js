@@ -128,8 +128,13 @@ async function fetchSelectedBibleVerse() {
 
     const verseData = await response.json();
 
-    document.getElementById("ver-rand-cap").textContent = `${verseData.book.name} ${verseData.chapter}:${verseData.number}`;
+    const verseCaption = `${verseData.book.name} ${verseData.chapter}:${verseData.number}`;
+    document.getElementById("ver-rand-cap").textContent = verseCaption;
     document.getElementById("ver-rand").textContent = verseData.text;
+
+    document.getElementById("ver-rand-cap").addEventListener("click", () => {
+      window.location.href = `testamento.html?livro=${verseData.book.abbrev.pt}&capitulo=${verseData.chapter}`;
+    });
   } catch (error) {
     console.error("Erro ao buscar verso bíblico:", error);
     document.getElementById("ver-rand-cap").textContent = "Erro";

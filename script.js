@@ -415,6 +415,11 @@ function displaySearchResults(verses, searchTerm, occurrence) {
       const verseElement = document.createElement("div");
       verseElement.innerHTML = `<p class="highlight">${verse.book.name} ${verse.chapter}:${verse.number}</p><p>${verse.text}</p><br><hr><br>`;
       searchResults.appendChild(verseElement);
+
+      const highlightParagraph = verseElement.querySelector(".highlight");
+      highlightParagraph.addEventListener("click", () => {
+        window.location.href = `testamento.html?livro=${verse.book.abbrev.pt}&capitulo=${verse.chapter}`;
+      });
     });
   }
 }

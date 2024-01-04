@@ -116,6 +116,12 @@ h3 {
 .highlight {
   font-weight: 800;
   color: var(--gold);
+  cursor: pointer;
+}
+
+.highlight:hover {
+  color: var(--gray-dark);
+  cursor: pointer;
 }
 
 /*===== Início do menu =====*/
@@ -608,7 +614,6 @@ MAIN HOME
 #ver-rand-cap {
   font-family: var(--ff-subtitle);
   font-size: var(--fs-xl);
-  color: var(--gold);
 }
 
 .general-btn {
