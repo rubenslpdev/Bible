@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const capitulo = params.get("capitulo");
 
   if (livro && capitulo) {
-    const apiUrl = `https://www.abibliadigital.com.br/api/verses/nvi/${livro}/${capitulo}`;
+    const apiUrlBooks = "https://www.abibliadigital.com.br/api/books";
     const token =
       "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlR1ZSBEZWMgMDUgMjAyMyAxODo0MjoxMSBHTVQrMDAwMC5ydWJlbnNscEBnbWFpbC5jb20iLCJpYXQiOjE3MDE4MDE3MzF9.VZWPmcP0mX7Du7Gc3guXd_68HIvBE4c94BwvlkHAs60";
 
@@ -60,6 +60,33 @@ document.addEventListener("DOMContentLoaded", () => {
         Authorization: `Bearer ${token}`,
       },
     };
+    fetch(apiUrlBooks, options)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Não foi possível obter a lista de livros");
+        }
+        return response.json();
+      })
+      .then((dataBooks) => {
+        const livroAtual = dataBooks.find((livroInfo) => livroInfo.abbrev.pt === livro);
+
+        if (livroAtual) {
+          if (capitulo >= livroAtual.chapters) {
+            nextButton.style.visibility = "hidden";
+          }
+
+          if (capitulo <= 1) {
+            previousButton.style.visibility = "hidden";
+          }
+        } else {
+          console.error("Livro não encontrado na lista de livros");
+        }
+      })
+      .catch((error) => {
+        console.error("Erro na requisição:", error);
+      });
+
+    const apiUrl = `https://www.abibliadigital.com.br/api/verses/nvi/${livro}/${capitulo}`;
 
     fetch(apiUrl, options)
       .then((response) => {
@@ -103,11 +130,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const nextChapterNumber = data.chapter.number + 1;
         if (!nextChapterNumber) {
-          document.getElementById("next-btn").style.visibility = "hidden";
+          nextButton.style.visibility = "hidden";
         }
 
         if (data.chapter.number <= 1) {
-          document.getElementById("previous-btn").style.visibility = "hidden";
+          previousButton.style.visibility = "hidden";
         }
       })
       .catch((error) => {
