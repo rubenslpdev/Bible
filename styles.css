@@ -674,6 +674,13 @@ MAIN CONTENT
   margin-bottom: 5px;
 }
 
+.clock {
+  width: 12px;
+  height: 12px;
+  fill: var(--gray-dark);
+  margin-bottom: 0.5rem;
+}
+
 .underline {
   width: 5rem;
   border-bottom: 2px solid var(--gold);
