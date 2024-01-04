@@ -246,6 +246,9 @@ function showChapters(abbrev, div, btn) {
         const divItem = document.createElement("div");
         divItem.textContent = i;
         divItem.setAttribute("class", "chapter-item");
+        divItem.addEventListener("click", () => {
+          window.location.href = `testamento.html?livro=${abbrev}&capitulo=${i}`;
+        });
         divList.appendChild(divItem);
       }
     })
