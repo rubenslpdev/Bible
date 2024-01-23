@@ -165,25 +165,33 @@
       ===============
     -->
     <main id="main-content">
-      <h2 class="book-name"></h2>
-      <h1 class="chapter-number"></h1>
-      <div class="tempo-leitura">
-        <svg class="clock" viewBox="0 0 512 512">
-          <path
-            d="M464 256A208 208 0 1 1 48 256a208 208 0 1 1 416 0zM0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM232 120V256c0 8 4 15.5 10.7 20l96 64c11 7.4 25.9 4.4 33.3-6.7s4.4-25.9-6.7-33.3L280 243.2V120c0-13.3-10.7-24-24-24s-24 10.7-24 24z"
-          />
-        </svg>
-        <p><span id="time"></span> minutos de leitura</p>
-        <div class="underline"></div>
-      </div>
-      <div id="content-container"></div>
-      <div class="content-nav">
-        <button id="previous-btn" class="general-btn">Anterior</button>
-        <button id="next-btn" class="general-btn">Próximo</button>
+      <div id="content-container">
+        <h2>Entre em contato</h2>
+        <p>Mande suas sugestões e comentários para podermos estar sempre aprimorando o projeto.</p>
+        <br />
+        <div class="contact-container2">
+          <div class="form-container">
+            <form id="contato" action="https://forms.un-static.com/forms/0f154d549e442d8f435d86777c915ac14a064dc7" method="POST">
+              <fieldset form="contato">
+                <div class="left">
+                  <input id="first-name" name="first-name" type="text" placeholder="Nome" autocomplete="on" required />
+                </div>
+                <div class="right">
+                  <input id="email" name="email" type="email" placeholder="Email" autocomplete="on" required />
+                </div>
+                <input id="subject" name="subject" type="text" placeholder="Assunto" autocomplete="on" required />
+                <textarea id="message" name="message" rows="8" cols="30" placeholder="Escreva sua mensagem aqui..." required></textarea>
+                <input class="submit" type="submit" value="Enviar" form="contato" />
+                <input type="hidden" name="_next" value="contact.html" />
+              </fieldset>
+            </form>
+            <p id="thank-you-message">Obrigado por entrar em contato!</p>
+          </div>
+        </div>
       </div>
     </main>
 
     <script src="script.js"></script>
-    <script src="content.js"></script>
+    <script src="contact.js"></script>
   </body>
 </html>
