@@ -30,7 +30,7 @@ Variables
   --ff-body: "Crimson Text", serif;
 
   --transition: all 0.3s linear;
-  --spacing: 0.25rem;
+  --spacing: 0.15rem;
   --radius-light: 0.5rem;
   --radius2-circle: 45px;
   --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
@@ -817,9 +817,9 @@ textarea {
 
 .submit {
   transition: all 0.2s ease, visibility 0s;
-  background-color: var(--gray-dark);
+  background-color: var(--gold);
   border: none;
-  color: var(--gold);
+  color: var(--white);
   height: 3rem;
   width: 100%;
   cursor: pointer;
@@ -828,7 +828,9 @@ textarea {
 
 .submit:hover {
   color: #fff;
-  background: var(--gold);
+  background: none;
+  border: 2px solid var(--gold);
+  color: var(--gold);
 }
 
 #thank-you-message {
