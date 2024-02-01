@@ -860,9 +860,17 @@ textarea {
   height: 466px;
 }
 
+.tips-content .botao-comprar .general-btn {
+  margin-bottom: 0;
+}
+
 @media (max-width: 600px) {
   .tips-content {
     display: block;
+  }
+
+  .botao-comprar {
+    text-align: center;
   }
 
   .tips-img {
