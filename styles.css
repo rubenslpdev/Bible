@@ -753,6 +753,7 @@ p::selection {
   align-self: center;
   border-top: solid 1px;
   border-bottom: solid 1px;
+  text-align: center;
 }
 
 .blockquote h1 {
@@ -877,6 +878,24 @@ textarea {
     height: auto;
     background-position: center;
     object-fit: cover;
+    padding-bottom: 1rem;
+  }
+}
+
+/*  Formatação de IMG da página Sobre e Como ler */
+
+.hero-img {
+  float: right;
+  margin: 0 0 1rem 1rem;
+  height: 466px;
+}
+
+@media (max-width: 600px) {
+  .hero-img {
+    width: 100%;
+    height: auto;
+    background-position: center;
+    margin: 0;
     padding-bottom: 1rem;
   }
 }
