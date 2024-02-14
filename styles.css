@@ -470,7 +470,7 @@ header {
 }
 
 .dropdown-btn:hover {
-  color: var(--gray-light2);
+  color: var(--gold);
 }
 
 .active {
@@ -731,7 +731,8 @@ MAIN CONTENT
 }
 
 /* Código para mudar o background da seleção de texto */
-p::selection {
+#ver-rand::selection,
+.verse-txt::selection {
   background: #fae88e;
   color: #191919;
 }
@@ -778,9 +779,9 @@ p::selection {
 /* =============CONTATO=============== */
 
 .form-container {
-  width: 100%;
-  /* max-width: 500px; */
+  max-width: 600px;
   min-width: 250px;
+  /* margin: 0 auto; */
 }
 
 fieldset {

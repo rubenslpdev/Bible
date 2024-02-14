@@ -114,7 +114,7 @@ Sharect.config({
   twitterUsername: "",
   backgroundColor: "#9c824b",
   iconColor: "#FFF",
-  selectableElements: ["p"],
+  selectableElements: ["#ver-rand", ".verse-txt"],
 });
 
 Sharect.init();

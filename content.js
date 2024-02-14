@@ -113,6 +113,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
             verseNumberSup.textContent = verse.number;
 
+            verseElement.classList.add("verse-txt");
+
             verseNumberSpan.classList.add("verse-number");
 
             verseNumberSpan.appendChild(verseNumberSup);
